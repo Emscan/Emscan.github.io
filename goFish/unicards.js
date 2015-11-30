@@ -24,11 +24,10 @@ var deckjs = (function () {
 		return this.unicode;
 	};
 
-
 	//face card class
 	FaceCard = function (value, suit, deck) {
 		var names = {
-			1: 'Ace',
+			1 : 'Ace',
 			11: 'Jack',
 			12: 'Queen',
 			13: 'King'
@@ -86,7 +85,6 @@ var deckjs = (function () {
 	};
 
 	/*private functions*/
-
 	function fillSuit(suit, deck) {
 		var card;
 
@@ -106,27 +104,8 @@ var deckjs = (function () {
 		for (var i in suits) {
 			result.push(new Suit(i, suits[i]));
 		}
-
+		
 		return result
 	}
 
 })();
-
-
-/*update fillSuit (face card surrogate, face card will inherit from, 
-		method to extend any class from any other class)
-
-specify face card classes 
-
-make a working Go Fish! 4 player (3)computer player AI? guess random. deck to draw from. 
-
-Texas Hold 'Em.
-*/
-
-
-
-
-
-
-
-

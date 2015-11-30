@@ -54,27 +54,40 @@ var goFish = (function () {
 			myCardString = '',
 			fishbowl = document.getElementById('fishbowl'),
 			fishbowlString = '',
-			compCards = document.getElementById('comp-cards'),
+			compCards1 = document.getElementById('comp-cards1'),
+			compCards2 = document.getElementById('comp-cards2'),
+			compCards3 = document.getElementById('comp-cards3'),
 			compCardString = '',
-			compHand = this.players[1].hand //How do I not repeat myself for each CPU player
-			hand = this.players[0].hand;
+			compHand1 = this.players[1].hand,
+			compHand2 = this.players[2].hand,
+			compHand3 = this.players[3].hand, //How do I not repeat myself for each CPU player
+			hand = this.players[0].hand,
+			messages = document.getElementById('messages');
 
 		for (var i in hand) {
 			myCardString += '<span class="my-card" card-idx="' + i + '">' + hand[i].unicode + '</span>';
 		}
-
 		myCards.innerHTML = myCardString;
 
 		for (var i in this.fishbowl.deck.cards) {
 			fishbowlString += '<span class="fishbowl-card" card-idx="' + i + '">&#x1f0a0;</span>';
 		}
-
 		fishbowl.innerHTML = fishbowlString;
 
-		for (var i in compHand ) {
+		for (var i in compHand1) {
 			compCardString += '<span class="comp-card" card-idx=" ' + i + '">&#x1f0a0;</span>';
 		}
-		compCards.innerHTML = compCardString;
+		compCards1.innerHTML = compCardString;
+
+		for (var i in compHand2) {
+			compCardString += '<span class="comp-card" card-idx=" ' + i + '">&#x1f0a0;</span>';
+		}
+		compCards2.innerHTML = compCardString;
+
+		for (var i in compHand3) {
+			compCardString += '<span class="comp-card" card-idx=" ' + i + '">&#x1f0a0;</span>';
+		}
+		compCards3.innerHTML = compCardString;
 	};
 
 	Player = function (hand, game) {
@@ -99,7 +112,7 @@ var goFish = (function () {
 		};
 
 		function askCallback(response) { //TODO response()
-			console.log(response);
+			response.innerHTML = messages;
 
 			if (response.length) {
 				self.hand = self.hand.concat(response);
@@ -253,7 +266,7 @@ var goFish = (function () {
 	function makePlayers(deck, game) {
 		var players = [];
 
-		players.push(new Player(deck.deal(5), game)); //refactor for constant for other number of players 
+		players.push(new Player(deck.deal(5), game));  
 		players.push(new CompPlayer(deck.deal(5), game));
 		players.push(new CompPlayer(deck.deal(5), game));
 		players.push(new CompPlayer(deck.deal(5), game));
@@ -261,32 +274,3 @@ var goFish = (function () {
 		return players;
 	};
 }());
-
-// Study DOM methods. study Document methods. 
-
-
-
-//October 6, 2015
-// LOOK UP LINTERS
-
-// Try and do the 'ask' method.
-
-//maybe start CompPlayer.prototype
-
-/*October 8, 2015
-div for msgs that will prob display (add to innerHTML tag)??? order stacks on the page.
-- put a msg in that space and delete until maybe 10 msgs are on the screen... (private function at the bottom)
-- Human player instructions (player 2, 3, 4) 
-!- pictures instead of numbers in player id (html) img src (in your same folder (just filename))
-GET 'ER DONE!!!
-if suit.name = hearts || diamonds color=red. !!!!!!WHERE!!!!!!
-
-SAT: JQuery, Public Repo. 
-
-
-
-/*clean up Chess game... make it work.
-review sorts.
-take control of the interview. (keep talking).
-
-*/

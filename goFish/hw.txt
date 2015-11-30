@@ -1,0 +1,42 @@
+
+// Study DOM methods. study Document methods. 
+
+
+//October 6, 2015
+// LOOK UP LINTERS
+
+// Try and do the 'ask' method.
+
+//maybe start CompPlayer.prototype
+
+/*October 8, 2015
+div for msgs that will prob display (add to innerHTML tag)??? order stacks on the page.
+- put a msg in that space and delete until maybe 10 msgs are on the screen... (private function at the bottom)
+- Human player instructions (player 2, 3, 4) 
+!- pictures instead of numbers in player id (html) img src (in your same folder (just filename))
+GET 'ER DONE!!!
+if suit.name = hearts || diamonds color=red. !!!!!!WHERE!!!!!!
+
+SAT: JQuery, Public Repo. 
+
+
+
+/*clean up Chess game... make it work.
+review sorts.
+take control of the interview. (keep talking).
+
+*/
+
+//refactor for constant for other number of players
+
+
+
+/*update fillSuit (face card surrogate, face card will inherit from, 
+		method to extend any class from any other class)
+
+specify face card classes 
+
+make a working Go Fish! 4 player (3)computer player AI? guess random. deck to draw from. 
+
+Texas Hold 'Em.
+*/
