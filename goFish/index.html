@@ -10,35 +10,43 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link type="text/css" rel="stylesheet" href="style.css"/>
 	</head>
 		<body>
-			<div class="container">
-				<button type="btn btn-default center-block" id="start-goFish" >New Game</button>
-			<br>
-			<div id="messages"></div>
-			<br>
-			<div class="player" player-idx="0">
-				<img src="images/blueFSH.png" height="20px" width="20px"> <i class="fa fa-user"></i>
+			<div class="container" id="main">
+				<button type="btn btn-info center-block" id="start-goFish" >New Game</button>
+				<br>
+				<div id="messages"></div>
+				<br>
+				<div class="container" id="top">
+					<div id="user" class="player" player-idx="0">
+						<img src="images/blueFSH.png" height="30px" width="30px"> <i class="fa fa-user"></i>
+						<div id="my-cards" size="100px"></div>
+					</div>
+					<br>
+				</div>
+
+				<div class="container" id="middle">
+					<div id="cpu1" class="player" player-idx="1">
+						<img src="images/greenFSH.png" height="30px" width="30px"> <i class="fa fa-desktop"></i>1
+						<div id="comp-cards1" size="100px"></div>
+					</div>
+						<div id="fishbowl" size="40px"></div>
+					<div id="cpu2" class="player" player-idx="2">
+						<img src="images/purpleFSH.png" height="30px" width="30px"> <i class="fa fa-desktop"></i>2
+						<div id="comp-cards2" size="100px"></div>
+					</div>
+					<br>
+				</div>
+				<br>
+
+				<div class="container" id="bottom">
+					<div id="cpu3" class="player" player-idx="3">
+						<img src="images/pinkFSH.png" height="30px" width="30px"> <i class="fa fa-desktop"></i>3
+						<div id="comp-cards3" size="100px"></div>
+					</div>
+					<br>
+				</div>
 			</div>
-				<div id="my-cards" size="40px"></div>
-			<br>
-			<div class="player" player-idx="1">
-				<img src="images/greenFSH.png" height="20px" width="20px"> <i class="fa fa-desktop"></i>1
-			</div>
-				<div id="comp-cards1" size="40px"></div>
-			<br>
-			<div class="player" player-idx="2">
-				<img src="images/pinkFSH.png" height="20px" width="20px"> <i class="fa fa-desktop"></i>2
-			</div>
-				<div id="comp-cards2" size="40px"></div>
-			<br>
-			<div class="player" player-idx="3">
-				<img src="images/purpleFSH.png" height="20px" width="20px"> <i class="fa fa-desktop"></i>3
-			</div>
-				<div id="comp-cards3" size="40px"></div>
-			<br>
-			<hr>
-			<div id="fishbowl" size="40px"></div>
-		</div>
 		</body>
 </html>

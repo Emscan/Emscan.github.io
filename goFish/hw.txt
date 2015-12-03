@@ -1,3 +1,9 @@
+display message helper function...
+(console.log redefined kind of... innerHTML)\
+
+remve start button after newGame.
+
+
 
 // Study DOM methods. study Document methods. 
 

@@ -54,13 +54,9 @@ var goFish = (function () {
 			myCardString = '',
 			fishbowl = document.getElementById('fishbowl'),
 			fishbowlString = '',
-			compCards1 = document.getElementById('comp-cards1'),
-			compCards2 = document.getElementById('comp-cards2'),
-			compCards3 = document.getElementById('comp-cards3'),
-			compCardString = '',
-			compHand1 = this.players[1].hand,
-			compHand2 = this.players[2].hand,
-			compHand3 = this.players[3].hand, //How do I not repeat myself for each CPU player
+			compCards = [null, document.getElementById('comp-cards1'), document.getElementById('comp-cards2'), document.getElementById('comp-cards3')],
+			compCardString,
+			compHand, //How do I not repeat myself for each CPU player
 			hand = this.players[0].hand,
 			messages = document.getElementById('messages');
 
@@ -74,20 +70,15 @@ var goFish = (function () {
 		}
 		fishbowl.innerHTML = fishbowlString;
 
-		for (var i in compHand1) {
-			compCardString += '<span class="comp-card" card-idx=" ' + i + '">&#x1f0a0;</span>';
-		}
-		compCards1.innerHTML = compCardString;
+		for (var i = 1; i < 4; i++) {
+			compHand = this.players[i].hand;
+			compCardString = '';
 
-		for (var i in compHand2) {
-			compCardString += '<span class="comp-card" card-idx=" ' + i + '">&#x1f0a0;</span>';
+			for (var j in compHand) {
+				compCardString += '<span class="comp-card" card-idx=" ' + j + '">&#x1f0a0;</span>';
+			}
+			compCards[i].innerHTML = compCardString;
 		}
-		compCards2.innerHTML = compCardString;
-
-		for (var i in compHand3) {
-			compCardString += '<span class="comp-card" card-idx=" ' + i + '">&#x1f0a0;</span>';
-		}
-		compCards3.innerHTML = compCardString;
 	};
 
 	Player = function (hand, game) {
@@ -100,11 +91,14 @@ var goFish = (function () {
 	Player.prototype.go = function () {
 		var self = this;
 
+
 		this.game.render();
 		this.choosePlayer(choosePlayerCallback);
+		displayMessages('Choose a player');
 
 		function choosePlayerCallback() {
 			self.chooseCard(chooseCardCallback);
+			displayMessages('Choose a card');
 		};
 
 		function chooseCardCallback(otherPlayer) {
@@ -112,7 +106,7 @@ var goFish = (function () {
 		};
 
 		function askCallback(response) { //TODO response()
-			response.innerHTML = messages;
+			displayMessages('Yog got' + response);
 
 			if (response.length) {
 				self.hand = self.hand.concat(response);
@@ -143,7 +137,7 @@ var goFish = (function () {
 	Player.prototype.chooseCard = function (callback) {
 		var self = this;
 
-		console.log('Player Chosen');
+		displayMessages('Player Chosen');
 		document.addEventListener('click', callbackHelper);
 
 		function callbackHelper(event) {
@@ -160,7 +154,7 @@ var goFish = (function () {
 			hand = this.turn.otherPlayer.hand,
 			response = [];
 
-		console.log("Card Chosen"); //TODO!!!!!!!!!!!
+		displayMessages("Card Chosen"); //TODO!!!!!!!!!!!
 		
 		for (var i = hand.length - 1; i >= 0; i--) {
 			if (card.value === hand[i].value) {
@@ -197,7 +191,7 @@ var goFish = (function () {
 					}
 				}			
 			}
-			console.log(val, hand, book, self.hand)
+			displayMessages(val, hand, book, self.hand)
 			return book;
 		}
 	};
@@ -207,7 +201,7 @@ var goFish = (function () {
 			self = this;
 
 		if (this.game.fishbowl.deck.cards.length) {
-			console.log('Go Fish!');
+			displayMessages('Go Fish!');
 			fishbowl.addEventListener('click', callbackHelper);
 		}
 		else {
@@ -263,7 +257,7 @@ var goFish = (function () {
 
 	return new Game(new deckjs.Deck());
 
-	function makePlayers(deck, game) {
+	function makePlayers (deck, game) {
 		var players = [];
 
 		players.push(new Player(deck.deal(5), game));  
@@ -273,4 +267,20 @@ var goFish = (function () {
 
 		return players;
 	};
+
+	function displayMessages (content) {
+		var messages = document.getElementById('messages');
+
+		messages.innerHTML = '<p>' + content + '</p>';
+
+	}
 }());
+
+document.addEventListener('DOMContentLoaded', function () {
+	var startBtn = document.getElementById('start-goFish');
+
+	startBtn.addEventListener('click', function () {
+		goFish.start();
+		startBtn.remove();
+	});
+})

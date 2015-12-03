@@ -1,0 +1,44 @@
+body {
+	font-size: 20px;
+}
+
+#main {
+	text-align: center;
+	background-color: white;
+	padding: 20px;
+	position: relative;
+	border: 10px solid;
+	border-radius: 10px;
+}
+
+#my-cards, #comp-cards1, #comp-cards2, #comp-cards3, #fishbowl {
+	font-size: 30px;
+}
+
+#cpu1 {
+	text-align: left;
+	float: left;
+}
+
+#cpu2 {
+	text-align: right;
+	float: right;
+}
+
+#fishbowl {
+	max-width: 300px;
+	max-height: 300px;
+	text-align: center;
+	float: left;
+	border: 5px solid;
+	border-radius: 5px;
+}
+
+#top, #middle, #bottom {
+	vertical-align: top;
+}
+
+#start-goFish {
+	border-radius: 24px;
+	border: 1px solid;
+}
