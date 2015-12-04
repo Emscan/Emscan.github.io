@@ -106,17 +106,18 @@ var goFish = (function () {
 		};
 
 		function askCallback(response) { //TODO response()
-			displayMessages('Yog got' + response);
-
-			if (response.length) {
-				self.hand = self.hand.concat(response);
-				self.makeBooks();
-				self.game.render();
-				self.go();
-			}
-			else {
-				self.goFish(self.game.next.bind(self.game));
-			}
+			setTimeout(function () {
+				if (response.length) {
+					self.hand = self.hand.concat(response);
+					self.makeBooks();
+					self.game.render();
+					self.go();
+					displayMessages('You got a ' + response);
+				}
+				else {
+					self.goFish(self.game.next.bind(self.game));
+				}
+			}, 1000);
 		};
 	};
 

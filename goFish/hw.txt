@@ -46,3 +46,8 @@ make a working Go Fish! 4 player (3)computer player AI? guess random. deck to dr
 
 Texas Hold 'Em.
 */
+
+
+setTimeout ( function, number of milliseconds)
+
+use columns  instead of divs.
